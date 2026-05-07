@@ -1,0 +1,31 @@
+http:
+  middlewares:
+    # Cloudflare Access header validation
+    # Protects admin routes (Traefik Dashboard, Portainer)
+    cf-access:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "https"
+
+    # Secure headers for all responses
+    secure-headers:
+      headers:
+        sslRedirect: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+        contentTypeNosniff: true
+        browserXssFilter: true
+        referrerPolicy: "strict-origin-when-cross-origin"
+        permissionsPolicy: "camera=(), microphone=(), geolocation=()"
+        customResponseHeaders:
+          X-Robots-Tag: "noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex"
+          Server: ""
+
+    # Rate limiting for API routes
+    api-rate-limit:
+      rateLimit:
+        average: 100
+        period: 1m
+        burst: 50
