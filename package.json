@@ -1,0 +1,28 @@
+{
+  "name": "majer-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "MAJER e.V. — Vereinsplattform und Nova OS Monorepo (pnpm + turborepo)",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.33.3",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,yml,yaml}\""
+  },
+  "devDependencies": {
+    "turbo": "^2.9.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0",
+    "prettier": "^3.4.0"
+  }
+}

@@ -1,0 +1,76 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment variables (never commit real values)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.staging
+.env.production
+# But DO commit the example:
+!.env.example
+
+# Turborepo
+.turbo/
+
+# Pocketbase data (pb_data is runtime state — never commit)
+pb_data/
+# pb_migrations IS committed (schema source of truth)
+!pb_migrations/
+
+# n8n local state (workflows in infra/n8n/*.json ARE committed)
+.n8n/
+n8n-data/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Secrets (never commit)
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Testing
+coverage/
+.nyc_output
+
+# Editor / OS artifacts
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/settings.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Misc
+*.tsbuildinfo
