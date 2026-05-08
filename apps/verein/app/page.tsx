@@ -1,27 +1,19 @@
 import Link from "next/link";
+import { PillarCard } from "@/components/PillarCard";
+import { AnimatedStats } from "@/components/AnimatedStats";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { PILLARS } from "@/lib/curriculum";
 
-const DREI_SCHRITTE = [
-  {
-    nummer: "01",
-    titel: "Selbst kennen",
-    text: "Wer bist du, bevor du ein Werkzeug in die Hand nimmst? Impulssteuerung, innere Antreiber, die 3-Sekunden-Pause — auf Basis der Transaktionsanalyse.",
-  },
-  {
-    nummer: "02",
-    titel: "Digitale Welt verstehen",
-    text: "Wie verdient TikTok Geld mit deiner Aufmerksamkeit? Wie entstehen Filterblasen? Wir erklären die Mechanik — nicht die Moral.",
-  },
-  {
-    nummer: "03",
-    titel: "Werkzeuge nutzen",
-    text: "Erst wenn du weißt, wer du bist und wie die Welt funktioniert, macht es Sinn, Werkzeuge zu bauen. KI, Automatisierung, digitale Produkte.",
-  },
+const SIDEBAR_STEPS = [
+  { nummer: "01", titel: "Selbst kennen" },
+  { nummer: "02", titel: "Digitale Welt verstehen" },
+  { nummer: "03", titel: "Werkzeuge nutzen" },
 ];
 
-const ZAHLEN = [
-  { wert: "30", einheit: "Lernpfade", note: "CC BY-SA 4.0 — frei nutzbar" },
-  { wert: "1000", einheit: "Fragen", note: "Curriculum in Aufbau" },
-  { wert: "4", einheit: "Zielgruppen", note: "Schüler · Student · Lehrer · Förderer" },
+const STATS = [
+  { wert: 30, einheit: "Seed-Fragen", note: "CC BY-SA 4.0 — frei nutzbar", prefix: "" },
+  { wert: 1000, einheit: "Fragen gesamt", note: "Curriculum in Aufbau" },
+  { wert: 4, einheit: "Zielgruppen", note: "Schüler · Student · Lehrer · Förderer" },
 ];
 
 export default function Home() {
@@ -99,7 +91,7 @@ export default function Home() {
             <p className="font-sans text-[9px] tracking-[0.3em] text-muted/60 uppercase mb-1">
               Das Konzept
             </p>
-            {DREI_SCHRITTE.map((s) => (
+            {SIDEBAR_STEPS.map((s) => (
               <div key={s.nummer} className="flex items-start gap-3">
                 <span className="font-sans text-[10px] text-primary/40 shrink-0 pt-px tabular-nums">
                   {s.nummer}
@@ -113,150 +105,110 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── DREI SCHRITTE ───────────────────────────────── */}
+      {/* ─── PILLAR CARDS ─────────────────────────────────── */}
       <section className="border-y border-divider">
-        {/* Section label */}
         <div className="max-w-5xl mx-auto px-6 border-b border-divider">
           <p className="font-sans text-[9px] tracking-[0.3em] text-muted uppercase py-4">
-            Das Konzept — Warum Reihenfolge vor Werkzeug kommt
+            Das Curriculum — hover für Beispiel-Fragen
           </p>
         </div>
-
-        {/* Three columns */}
         <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-divider">
-          {DREI_SCHRITTE.map((schritt) => (
-            <div
-              key={schritt.nummer}
-              className="group relative overflow-hidden px-8 py-16 bg-surface hover:bg-paper transition-colors duration-300"
-            >
-              {/* Decorative background number */}
-              <span
-                className="absolute -top-3 right-3 font-display font-light text-primary pointer-events-none select-none"
-                style={{ fontSize: "108px", lineHeight: 1, opacity: 0.055 }}
-                aria-hidden="true"
-              >
-                {schritt.nummer}
-              </span>
-
-              <span className="font-sans text-[10px] tracking-[0.28em] text-primary uppercase block mb-6">
-                Schritt {schritt.nummer}
-              </span>
-
-              <h3
-                className="font-display font-light text-ink mb-6 leading-tight"
-                style={{ fontSize: "clamp(1.6rem, 2.5vw, 2rem)" }}
-              >
-                {schritt.titel}
-              </h3>
-
-              {/* Expanding rule on hover */}
-              <div className="h-px bg-primary mb-6 group-hover:opacity-40 opacity-20 transition-all duration-300 group-hover:w-12 w-8" />
-
-              <p className="font-sans text-sm text-muted leading-[1.85]">
-                {schritt.text}
-              </p>
-            </div>
+          {PILLARS.map((pillar) => (
+            <PillarCard key={pillar.nummer} pillar={pillar} compact />
           ))}
+        </div>
+        <div className="max-w-5xl mx-auto px-6 border-t border-divider py-5 flex justify-end">
+          <Link
+            href="/lernpfade"
+            className="font-sans text-xs text-primary hover:text-primary/70 transition-colors flex items-center gap-1.5"
+          >
+            Alle Lernpfade ansehen
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
       {/* ─── WARUM DIE REIHENFOLGE ───────────────────────── */}
       <section className="max-w-5xl mx-auto px-6 py-28">
-        <div className="md:grid md:grid-cols-[1fr_1.5fr] md:gap-20 items-start">
-          {/* Pull-quote headline */}
-          <div>
-            <h2
-              className="font-display font-light text-ink leading-[1.0]"
-              style={{
-                fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Alle beginnen
-              <br />
-              <em className="text-primary">in der Mitte.</em>
-              <br />
-              Wir nicht.
-            </h2>
-          </div>
+        <AnimatedSection>
+          <div className="md:grid md:grid-cols-[1fr_1.5fr] md:gap-20 items-start">
+            {/* Pull-quote headline */}
+            <div>
+              <h2
+                className="font-display font-light text-ink leading-[1.0]"
+                style={{
+                  fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Alle beginnen
+                <br />
+                <em className="text-primary">in der Mitte.</em>
+                <br />
+                Wir nicht.
+              </h2>
+            </div>
 
-          {/* Explanatory text with left border */}
-          <div className="mt-10 md:mt-0 border-l border-divider pl-8 md:pl-10 space-y-5">
-            <p className="font-sans text-[15px] text-muted leading-[1.85]">
-              Klicksafe warnt vor Gefahren. Chaos macht Schule baut Tools. JFF
-              analysiert Gesellschaft. Alle machen wichtige Arbeit — aber alle
-              beginnen in der Mitte.
-            </p>
-            <p className="font-sans text-[15px] text-muted leading-[1.85]">
-              Wer sich nicht selbst steuern kann, wird durch bessere Werkzeuge
-              nicht freier — nur impulsiver. Und wer nicht versteht, wie
-              Algorithmen Geld verdienen, kann ihre Auswirkungen nicht einordnen.
-            </p>
-            <p className="font-sans text-[15px] text-ink font-medium leading-[1.85]">
-              MAJER beginnt beim Menschen. Das ist der Unterschied.
-            </p>
+            {/* Explanatory text with left border */}
+            <div className="mt-10 md:mt-0 border-l border-divider pl-8 md:pl-10 space-y-5">
+              <p className="font-sans text-[15px] text-muted leading-[1.85]">
+                Klicksafe warnt vor Gefahren. Chaos macht Schule baut Tools. JFF
+                analysiert Gesellschaft. Alle machen wichtige Arbeit — aber alle
+                beginnen in der Mitte.
+              </p>
+              <p className="font-sans text-[15px] text-muted leading-[1.85]">
+                Wer sich nicht selbst steuern kann, wird durch bessere Werkzeuge
+                nicht freier — nur impulsiver. Und wer nicht versteht, wie
+                Algorithmen Geld verdienen, kann ihre Auswirkungen nicht einordnen.
+              </p>
+              <p className="font-sans text-[15px] text-ink font-medium leading-[1.85]">
+                MAJER beginnt beim Menschen. Das ist der Unterschied.
+              </p>
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
-      {/* ─── ZAHLEN ──────────────────────────────────────── */}
+      {/* ─── ZAHLEN (animiert) ───────────────────────────── */}
       <section className="bg-primary text-paper overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-paper/10">
-            {ZAHLEN.map((z) => (
-              <div
-                key={z.einheit}
-                className="py-20 md:px-12 first:md:pl-0 last:md:pr-0"
-              >
-                <div
-                  className="font-display font-light leading-none text-paper mb-3"
-                  style={{ fontSize: "clamp(3.5rem, 7vw, 5.5rem)" }}
-                >
-                  {z.wert}
-                </div>
-                <div className="font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-paper/60 mb-2">
-                  {z.einheit}
-                </div>
-                <div className="font-sans text-xs text-paper/35 leading-relaxed">
-                  {z.note}
-                </div>
-              </div>
-            ))}
-          </div>
+          <AnimatedStats stats={STATS} />
         </div>
       </section>
 
       {/* ─── USP ZITAT ───────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-6 py-28">
-        <blockquote className="relative border-l-2 border-primary pl-8 md:pl-12 max-w-3xl">
-          {/* Decorative quotation mark */}
-          <span
-            className="absolute font-display font-light text-primary pointer-events-none select-none"
-            style={{
-              fontSize: "88px",
-              lineHeight: 1,
-              opacity: 0.1,
-              top: "-20px",
-              left: "-8px",
-            }}
-            aria-hidden="true"
-          >
-            "
-          </span>
+        <AnimatedSection>
+          <blockquote className="relative border-l-2 border-primary pl-8 md:pl-12 max-w-3xl">
+            {/* Decorative quotation mark */}
+            <span
+              className="absolute font-display font-light text-primary pointer-events-none select-none"
+              style={{
+                fontSize: "88px",
+                lineHeight: 1,
+                opacity: 0.1,
+                top: "-20px",
+                left: "-8px",
+              }}
+              aria-hidden="true"
+            >
+              "
+            </span>
 
-          <p
-            className="font-display font-light text-ink italic leading-[1.55]"
-            style={{ fontSize: "clamp(1.15rem, 2.2vw, 1.5rem)" }}
-          >
-            PISA 2022: Deutschland auf Platz 25 von 37 OECD-Ländern bei
-            digitaler Kompetenz. 42 % der Schüler in Berliner
-            Brennpunktbezirken ohne digitale Grundkompetenzen.
-          </p>
+            <p
+              className="font-display font-light text-ink italic leading-[1.55]"
+              style={{ fontSize: "clamp(1.15rem, 2.2vw, 1.5rem)" }}
+            >
+              PISA 2022: Deutschland auf Platz 25 von 37 OECD-Ländern bei
+              digitaler Kompetenz. 42 % der Schüler in Berliner
+              Brennpunktbezirken ohne digitale Grundkompetenzen.
+            </p>
 
-          <footer className="mt-6 font-sans text-[10px] tracking-[0.2em] text-muted uppercase">
-            Berliner Bildungsbericht 2023 · PISA 2022 · ICILS 2023
-          </footer>
-        </blockquote>
+            <footer className="mt-6 font-sans text-[10px] tracking-[0.2em] text-muted uppercase">
+              Berliner Bildungsbericht 2023 · PISA 2022 · ICILS 2023
+            </footer>
+          </blockquote>
+        </AnimatedSection>
       </section>
 
       {/* ─── CTA BANNER ──────────────────────────────────── */}
