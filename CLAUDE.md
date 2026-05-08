@@ -40,13 +40,18 @@ Beispiele: `mitgliedsantrag.ts`, `lernpfad.ts` | `apiHandler.ts`, `useAuth.ts`
 Akzentfarben: blue-500, violet-500, teal-500, amber-500
 Switch: Modal beim ersten Besuch, Cookie-Persistenz
 
-## Status (2026-05-07)
+## Status (2026-05-08)
 - Monorepo-Scaffold: ✅
 - Foundational Docs (SKILL.md, session_state, progress): ✅
 - Infra-Files (docker-compose, traefik.yml): ✅
 - Website-Plan: ✅ (docs/website-plan.md)
 - AGENTS.md für Codex: ✅
-- apps/verein Implementation: 🔲
+- Brand Identity: ✅ (docs/brand-identity.md)
+- Video-Creation-Infra: ✅ (docs/tools/video-creation/, 6 Files)
+- 1000-Fragen-Konzept: ✅ (docs/1000-fragen.md, 30 Seed-Fragen)
+- apps/verein MVP (7 Seiten, Persona-System, Brand): ✅
+- Creator-Workflow-System: 🔲 (vc-03 wartet auf konkretes System)
+- Mitgliedsantrag-Formular (Pocketbase): 🔲
 - GitHub Push: 🔲
 - VPS Deployment: 🔲
 
@@ -54,4 +59,7 @@ Switch: Modal beim ersten Besuch, Cookie-Persistenz
 - `docs/website-plan.md` — vollständige Website-Anforderungen
 - `docs/system_architecture.md` — Infra-Diagramm
 - `docs/session_state.md` — aktueller Stand
+- `docs/brand-identity.md` — Farben, Typo, Logo, Email, Stempel
+- `docs/1000-fragen.md` — 1000-Fragen-System + 30 Seed-Fragen
+- `docs/tools/video-creation/` — 6 Video-Creation-Knowledge-Files
 - `~/.claude/skills/majer-tech-architect/SKILL.md` — operative Regeln §1–§10

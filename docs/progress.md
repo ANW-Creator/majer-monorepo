@@ -25,6 +25,53 @@
 
 ## Entries
 
+## 2026-05-08 — apps/verein Website MVP gebaut
+**Goal:** MAJER-Website (apps/verein) als Visitenkarte bauen — lauffähig, markenkonform, alle Kernseiten vorhanden.
+
+**Done:**
+- `apps/verein/pnpm-workspace.yaml` — `allowBuilds` für `sharp` + `unrs-resolver` auf `true` gesetzt → pnpm install abgeschlossen
+- `apps/verein/next.config.ts` — `turbopack.root` konfiguriert (Monorepo-Root), Workspace-Warning behoben
+- `apps/verein/app/layout.tsx` — Crimson Pro + DM Sans via `next/font/google` (DSGVO-konform, kein CDN), MAJER-Metadata, PersonaProvider + Nav + PersonaModal integriert
+- `apps/verein/app/globals.css` — Brand-Token-System: `--color-primary`, `--color-paper`, `--color-ink`, `--color-muted`, `--color-divider`, `--color-surface`, Persona-Akzentfarben, `.majer-rule`
+- `apps/verein/lib/persona.ts` — Persona-Typen + PERSONAS-Konfiguration (4 Zielgruppen, Akzentfarben)
+- `apps/verein/components/PersonaProvider.tsx` — Cookie-basierter Kontext, First-Visit-Modal-Logik
+- `apps/verein/components/PersonaModal.tsx` — Overlay mit 4 Persona-Karten, MAJER-Wordmark
+- `apps/verein/components/Nav.tsx` — Sticky Nav mit Persona-Badge, aktive Link-Markierung
+- `apps/verein/app/page.tsx` — Homepage: Hero, Drei-Schritte-Konzept, Warum-Reihenfolge, Zahlen-Banner, USP-Zitat, CTA, Footer
+- `apps/verein/app/ueber-uns/page.tsx` — Mission, 4 Werte, Wissenschaftliche Basis (TA + OECD + ICILS), Gründer-Section
+- `apps/verein/app/mitmachen/page.tsx` — 3 Mitgliedsarten mit Preisen, Status-Hinweis (i.G.), Kontakt, Warum-Jetzt-Banner
+- `apps/verein/app/lernpfade/page.tsx` — Stub mit "Coming Soon"-Badge
+- `apps/verein/app/impressum/page.tsx` — §5 TMG + §18 MStV konform
+- `apps/verein/app/datenschutz/page.tsx` — Plausible, Hostinger AVV, Cookies, Beschwerderecht
+
+**In Progress:** —
+
+**Blocked:** —
+
+**Next Step:** Dev-Server starten (`pnpm dev` in `apps/verein`), visuell im Browser prüfen. Dann: Mitgliedsantrag-Formular mit Pocketbase-Anbindung (Masterplan Step 54).
+
+**Files touched:**
+- `apps/verein/pnpm-workspace.yaml` (modified)
+- `apps/verein/next.config.ts` (modified)
+- `apps/verein/app/layout.tsx` (modified)
+- `apps/verein/app/globals.css` (modified)
+- `apps/verein/app/page.tsx` (modified)
+- `apps/verein/lib/persona.ts` (added)
+- `apps/verein/components/PersonaProvider.tsx` (added)
+- `apps/verein/components/PersonaModal.tsx` (added)
+- `apps/verein/components/Nav.tsx` (added)
+- `apps/verein/app/ueber-uns/page.tsx` (added)
+- `apps/verein/app/mitmachen/page.tsx` (added)
+- `apps/verein/app/lernpfade/page.tsx` (added)
+- `apps/verein/app/impressum/page.tsx` (added)
+- `apps/verein/app/datenschutz/page.tsx` (added)
+
+**DSGVO touched:** yes — Fonts via `next/font` (kein Google-CDN, DSGVO-konform); Impressum + Datenschutzerklärung angelegt; Persona-Cookie ist SameSite=Strict und nur Präferenzdaten; keine PII gespeichert.
+
+**Decision Log entry needed:** no
+
+---
+
 ## 2026-05-07 — Foundational Docs v1.0-Baseline eingefroren
 **Goal:** Drei Foundational Docs (`SKILL.md`, `session_state.md`, `progress.md`) als v1.0-Baseline markieren und im Monorepo physisch verankern. Monorepo-Scaffold, git init und erster Commit.
 

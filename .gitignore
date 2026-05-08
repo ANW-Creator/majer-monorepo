@@ -1,3 +1,7 @@
+# Second Brain
+CLAUDE.local.md
+.claude/settings.local.json
+
 # Dependencies
 node_modules/
 .pnp
@@ -74,3 +78,26 @@ Thumbs.db
 
 # Misc
 *.tsbuildinfo
+
+# Persönliche Rohdaten — nicht ins Repo
+FIDT - Buisness/
+Gesamter Chatverlauf mit Claude/
+Was ich lerne
+majer-monorepo.code-workspace
+
+# Pre-Monorepo Artefakte (Root-Ebene)
+index.html
+majer-briefing.html
+majer-command-center.jsx
+majer-kurzkonzept.html
+majer-onepager.html
+
+# Temporäre Verarbeitungs-Dateien
+.tmp/
+
+# Persönliche Dateien innerhalb von json/ (nur Workflows tracken)
+json/*.pdf
+json/*.png
+json/*.jpg
+json/*.xlsx
+json/*.ics

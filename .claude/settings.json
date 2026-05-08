@@ -1,0 +1,28 @@
+{
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"SESSION ENDE — Checkliste: (1) docs/progress.md mit heutigem Datum und Ergebnis aktualisieren, (2) docs/session_state.md offene Punkte und naechsten Schritt eintragen, (3) Wurde totes Kapital abgearbeitet?\"}'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' 2>/dev/null | grep -E '\\.(ts|tsx|py|js)$' | { read -r f; [ -n \"$f\" ] && echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PostToolUse\", \"additionalContext\": \"Quellcode-Datei geaendert. Wenn dies ein signifikanter Schritt ist: docs/progress.md Eintrag anlegen.\"}}'; } 2>/dev/null || true",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

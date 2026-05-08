@@ -9,14 +9,13 @@
 
 ## Current State
 
-**Last updated:** 2026-05-07 by Heinrich
+**Last updated:** 2026-05-08 by Claude (Session: Website MVP)
 **Active branch:** `main`
-**Active app:** `majer-monorepo` @ `/Users/heinrich/dev/majer-monorepo`
-**Active milestone:** Foundational docs v1.0 einfrieren + VPS-Deployment
+**Active app:** `apps/verein` @ `/Users/heinrich/dev/majer-monorepo/apps/verein`
+**Active milestone:** Website-MVP live (Visitenkarte) → nächste: Mitgliedsantrag-Formular + Pocketbase-Anbindung
 
 ### Active Work
-<!-- 1–3 sentences: what is currently in progress, what is the immediate next step. -->
-Monorepo-Gerüst physisch angelegt. SKILL.md v1.0 geschrieben (`~/.claude/skills/majer-tech-architect/`). Nächster Schritt: `docs/system_architecture.md` schreiben, dann `.env.example` + `infra/docker-compose.yml`, anschließend git push + VPS-Deployment.
+`apps/verein` Website MVP vollständig gebaut und auf Produktionsbuild geprüft (TypeScript clean, 9 statische Seiten). Seiten: `/`, `/ueber-uns`, `/mitmachen`, `/lernpfade` (Stub), `/impressum`, `/datenschutz`. Nächste Schritte: (1) visuell im Browser testen (Persona-Modal, Nav, Brand-Farben), (2) Mitgliedsantrag-Formular mit Pocketbase-Collection bauen, (3) vc-03-creator-workflow-system.md mit Gottlebe + Moritz Herzog System aktualisieren (nach Heinrich-Input).
 
 ### Open Issues
 <!-- Bullet list of known issues. Resolved issues that generated a decision migrate to the Decision Log below. -->
@@ -80,6 +79,42 @@ Schema:
 **Reversibility:** trivial | moderate | hard
 **DSGVO impact:** none | yes (describe)
 -->
+
+### 2026-05-07 — Brand-Richtung: Papier/Intellektuell (#1a3d4d)
+**Context:** Repo enthielt zwei konkurrierende visuelle Identitäten: index.html (Gold #c9a84c auf Dunkel) und die 4 Briefing-Dokumente (Blau-Grün #1a3d4d auf warmem Papier). Entscheidung war notwendig.
+**Options considered:**
+1. Gold/Dunkel (index.html) — hochwertiger, creator-ready, aber nicht stiftungsreif
+2. **Papier/Intellektuell (Briefing-Stil)** — gewählt: stiftungsreif, bildungsnah, seriös
+3. Neues System von Null — unnötig, da Briefing-Stil bereits erprobt und gut
+**Decision:** Blau-Grün #1a3d4d, Crimson Pro Serif, warmes Papier-Weiß #fdfcf8 als Basis-Brand.
+**Rationale:** 4 HTML-Artefakte zeigen bereits konsistente Anwendung. Stiftungen und Bildungspartner haben eher klassisch-ruhige Erwartungen. index.html-Gold kann als Nova-Ästhetik (kommerzieller Arm) weiterverwendet werden.
+**Consequences:** Brand-Identity-Dokument geschrieben. Logo, Stempel, Email-Adressen müssen noch umgesetzt werden. Nova kann eine eigene separate Brand-Richtung haben.
+**Reversibility:** moderat (alle Artefakte müssten angepasst werden)
+**DSGVO impact:** none
+
+### 2026-05-07 — Video-Strategie: Alle Plattformen gleichzeitig via Repurposing
+**Context:** MAJER braucht Reichweite bevor die Website live geht — Ideen müssen validiert werden. Frage: Eine Plattform tief oder mehrere parallel.
+**Options considered:**
+1. TikTok first — höchste Reichweite, aber Plattform-Risiko
+2. YouTube first — langsamer, aber evergreen
+3. **Alle gleichzeitig via Repurposing** — gewählt
+**Decision:** Ein Longform-Video → Opus Clip → TikTok + YouTube Shorts + Instagram Reels gleichzeitig. LinkedIn separat mit Textpost.
+**Rationale:** Repurposing-Tools (Opus Clip, Buffer) existieren und kosten ~40€/Monat. Kein Extra-Aufwand pro Plattform. Kein Plattform-Lock-in.
+**Consequences:** ~40€/Monat Tool-Budget für Video-Produktion. Creator-Workflow-System muss noch konkretisiert werden.
+**Reversibility:** trivial
+**DSGVO impact:** none
+
+### 2026-05-07 — 1000-Fragen-System: One source of truth
+**Context:** Video-Content-Strategie brauchte inhaltliches Fundament — welche Fragen werden beantwortet?
+**Options considered:**
+1. Ad-hoc Themen je nach Trends
+2. Feste Themen-Säulen (3–5 Kategorien)
+3. **1000-Fragen-Bank als one source of truth** — gewählt
+**Decision:** 1000 nummerierte Fragen, 3 Bereiche × ~333. Jede Frage speist Videos, Portal-Curriculum, Website-FAQ und kommerzielle Produkte gleichzeitig.
+**Rationale:** Einmalige Investition in Struktur verhindert Content-Chaos. 1000 beantwortete Fragen = unmittelbares SEO-Fundament + einzigartiges Wissens-Archiv in DE.
+**Consequences:** Pocketbase-Schema muss Kollektion `tausend_fragen` bekommen. 30 Seed-Fragen definiert — braucht ~3 Jahre bis 1000 vollständig.
+**Reversibility:** moderat (Umstrukturierung möglich, aber Aufwand)
+**DSGVO impact:** none (Fragen sind öffentlich, keine personenbezogenen Daten)
 
 ### 2026-05-07 — Domain-Strategie: nova-tive.com heute, digitale-bildung.de als Ziel
 **Context:** Heinrich hat Cloudflare-Domain nova-tive.com. Ziel-Domain digitale-bildung.de ist noch nicht registriert. Heute-Deployment benötigt eine funktionierende Domain für SSL.
