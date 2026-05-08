@@ -9,17 +9,18 @@
 
 ## Current State
 
-**Last updated:** 2026-05-08 by Claude (Session: Website MVP)
+**Last updated:** 2026-05-08 by Claude (Session: Docs-Cleanup + Video-Bibliothek)
 **Active branch:** `main`
 **Active app:** `apps/verein` @ `/Users/heinrich/dev/majer-monorepo/apps/verein`
-**Active milestone:** Website-MVP live (Visitenkarte) → nächste: Mitgliedsantrag-Formular + Pocketbase-Anbindung
+**Active milestone:** Phase 0 komplett (Steps 1–9) → nächste: apps/verein visuell testen + VPS-Deployment
 
 ### Active Work
-`apps/verein` Website MVP vollständig gebaut und auf Produktionsbuild geprüft (TypeScript clean, 9 statische Seiten). Seiten: `/`, `/ueber-uns`, `/mitmachen`, `/lernpfade` (Stub), `/impressum`, `/datenschutz`. Nächste Schritte: (1) visuell im Browser testen (Persona-Modal, Nav, Brand-Farben), (2) Mitgliedsantrag-Formular mit Pocketbase-Collection bauen, (3) vc-03-creator-workflow-system.md mit Gottlebe + Moritz Herzog System aktualisieren (nach Heinrich-Input).
+Phase 0 des Masterplans abgeschlossen: Alle 24 Nate Herk Videos transkribiert und dokumentiert, n8n-Katalog erstellt, Hooks eingerichtet, masterplan-100.md gelöscht. Einzige offene Phase-0-Items: Steps 10–15 (FIDT-Business, Philosophische Grundlagen, Self-Audit Skill, Wöchentlicher Cron — alle low-effort, parallel machbar).
+
+**Nächste konkrete Aufgabe:** `pnpm dev` in `apps/verein` → visuell im Browser testen. Die Website wurde noch nie geöffnet. Erst nach visuellem Test: VPS SSH-Inspektion, dann Deployment.
 
 ### Open Issues
-<!-- Bullet list of known issues. Resolved issues that generated a decision migrate to the Decision Log below. -->
-- `system_architecture.md` fehlt noch — wird vor erstem VPS-Deployment geschrieben
+- apps/verein wurde nie visuell getestet — Persona-Modal, Nav, alle 7 Seiten im Browser prüfen
 - AVV-Status mit Hostinger noch zu prüfen / dokumentieren
 - Cloudflare DNS für nova-tive.com noch nicht auf VPS-IP gesetzt
 - Domain `digitale-bildung.de` noch nicht registriert (Kauf geplant)

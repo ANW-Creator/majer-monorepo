@@ -40,26 +40,28 @@ Beispiele: `mitgliedsantrag.ts`, `lernpfad.ts` | `apiHandler.ts`, `useAuth.ts`
 Akzentfarben: blue-500, violet-500, teal-500, amber-500
 Switch: Modal beim ersten Besuch, Cookie-Persistenz
 
-## Status (2026-05-08)
+## Status (2026-05-08 — Phase 0 fast komplett)
 - Monorepo-Scaffold: ✅
-- Foundational Docs (SKILL.md, session_state, progress): ✅
+- Foundational Docs (SKILL.md, session_state, progress, system_architecture): ✅
 - Infra-Files (docker-compose, traefik.yml): ✅
-- Website-Plan: ✅ (docs/website-plan.md)
-- AGENTS.md für Codex: ✅
 - Brand Identity: ✅ (docs/brand-identity.md)
-- Video-Creation-Infra: ✅ (docs/tools/video-creation/, 6 Files)
 - 1000-Fragen-Konzept: ✅ (docs/1000-fragen.md, 30 Seed-Fragen)
-- apps/verein MVP (7 Seiten, Persona-System, Brand): ✅
-- Creator-Workflow-System: 🔲 (vc-03 wartet auf konkretes System)
+- n8n Workflow-Katalog: ✅ (docs/n8n-workflow-library.md)
+- Nate Herk Video-Bibliothek: ✅ (24/24 Wissensdokumente, docs/tools/)
+- Video-Transkriptions-Pipeline: ✅ (tools/extract_video_captions.py)
+- Self-Checking Hooks: ✅ (.claude/settings.json)
+- apps/verein MVP (7 Seiten, Persona-System, Brand): ✅ — noch nicht visuell getestet
+- VPS SSH-Inspektion + Deployment: 🔲 — nächste konkrete Aufgabe
 - Mitgliedsantrag-Formular (Pocketbase): 🔲
-- GitHub Push: 🔲
-- VPS Deployment: 🔲
+- Logo + Stempel (Canva MCP): 🔲
+- Self-Audit Skill + Wöchentlicher Health-Check Cron: 🔲
 
 ## Wo mehr steht
-- `docs/website-plan.md` — vollständige Website-Anforderungen
+- `context/current-priorities.md` — geordnete P0/P1/P2/P3 Aufgabenliste
+- `docs/masterplan-200.md` — vollständiger Masterplan (200 Schritte, 12 Phasen)
+- `docs/session_state.md` — aktueller Stand + Decision Log
+- `docs/website-plan.md` — Website-Anforderungen
 - `docs/system_architecture.md` — Infra-Diagramm
-- `docs/session_state.md` — aktueller Stand
 - `docs/brand-identity.md` — Farben, Typo, Logo, Email, Stempel
-- `docs/1000-fragen.md` — 1000-Fragen-System + 30 Seed-Fragen
-- `docs/tools/video-creation/` — 6 Video-Creation-Knowledge-Files
+- `docs/nate-herk-video-library.md` — 24 Video-Wissensdokumente
 - `~/.claude/skills/majer-tech-architect/SKILL.md` — operative Regeln §1–§10

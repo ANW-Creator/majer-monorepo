@@ -1,69 +1,93 @@
 # Current Priorities
 
-**Stand: 2026-05-08 — nach vollständiger Bestandsaufnahme**
+**Stand: 2026-05-08 — nach Abschluss Nate Herk Video-Bibliothek**
 
-## Audit-Ergebnis: Was haben wir tatsächlich?
+---
 
-### Fertig und nutzbar
-- Monorepo-Scaffold (pnpm + Turborepo), alle Ports definiert
-- apps/verein MVP — 7 Seiten, Persona-System, Brand implementiert
-- Brand Identity (docs/brand-identity.md) — Farben, Typo, Logo, Stempel
-- Claude Code OS — Skills (wat-automation, triggerdev-builder, frontend-design), MCP-Config (trigger.dev), Memory-System
-- Masterplan-200 (docs/masterplan-200.md) — 12 Phasen, 200 Schritte, alles integriert
+## Wo wir stehen
+
+### Abgeschlossen (Phase 0 komplett)
+- Claude Code OS: Memory, Skills (wat-automation, triggerdev-builder, frontend-design), MCP-Config
+- Self-Checking Hooks in `.claude/settings.json`
+- Nate Herk Video-Bibliothek: alle 24 Videos transkribiert und als Wissensdokumente abgelegt
+- Video-Transkriptions-Pipeline: `tools/extract_video_captions.py` + `workflows/video-transcription.md`
+- n8n Workflow-Katalog: `docs/n8n-workflow-library.md`
+- apps/verein MVP: 7 Seiten, Persona-System, Brand-Token-System — TypeScript clean
 - Infra-Files: docker-compose, traefik.yml, AGENTS.md
-- 1000-Fragen-System (docs/1000-fragen.md, 30 Seed-Fragen)
-- docs/brand-identity.md, docs/website-plan.md, docs/system_architecture.md
-- Nova Business Foundation (FIDT - Buisness/Nova_10_Day_Setup_Guide.md) — vorhanden, noch nicht als Skill/Referenz integriert
-- n8n Workflow-Bibliothek (json/) — 30+ Templates vorhanden, noch nicht katalogisiert
+- Foundational Docs: masterplan-200, brand-identity, website-plan, system_architecture, 1000-fragen (30 Seeds)
 
-### Totes Kapital — muss repariert werden
-- docs/tools/video-01 bis video-07 — **keine echten Transkripte**, nur Claude-Zusammenfassungen aus dem Modellgedächtnis. Muss mit yt-dlp neu gebaut werden.
-- json/ Ordner — 30+ n8n-Workflows liegen herum, aber kein Katalog, kein Deployment, keine Integration
-- FIDT - Buisness/ — wertvolle Inhalte, aber noch nicht in das System eingebunden
-- "Was ich lerne" Notiz — verweist auf Nate Herk-Kurs und Google Sheets, nicht ausgewertet
-- Gesamter Chatverlauf — 586KB Wissen (Philosophie, Akademiker-Kontakte, Meeting-Prep), nicht strukturiert abgelegt
-- Video-Transkriptions-Pipeline — fehlt komplett (kein Tool, kein Workflow)
+### Nicht abgeschlossen in Phase 0 (Steps 10–15)
+- Step 10: FIDT Business-Wissen → `references/nova-business-foundation.md`
+- Step 11: Akademische Grundlagen → `references/philosophische-grundlagen.md` + `references/wirkungsmessung.md`
+- Step 12: E-Mail-Templates → `references/outreach-templates.md`
+- Step 13: Akademische Partner-Liste → `references/akademische-partner.md`
+- Step 14: Self-Audit Skill
+- Step 15: Wöchentlicher Health-Check via Cron
 
-### Bekannte Lücken (noch nicht gebaut)
-- Mitgliedsantrag-Formular (Pocketbase)
-- Creator-Workflow-System (vc-03)
-- GitHub Push + VPS Deployment
-- Self-Checking Hooks in settings.json
-- n8n Workflow-Katalog (docs/n8n-workflow-library.md)
-- Akademische Referenzdokumente aus dem Chatverlauf
-- Self-Audit Skill
+---
 
 ## Prioritäten (geordnet nach Fundament-Logik)
 
-**Fundament muss vor der Website stehen.** Das ist Heinrichs explizite Anforderung.
+### P0 — Vor allem anderen: Website visuell testen
+**apps/verein wurde nie im Browser gesehen.** TypeScript ist clean, aber wir wissen nicht ob sie gut aussieht.
+- `cd apps/verein && pnpm dev`
+- Browser: localhost:3001 — Persona-Modal, Nav, alle 7 Seiten prüfen
+- Frontend Design Skill + UI UX Pro Max Skill anwenden (aus video-23)
+- Wenn Qualität nicht gut genug: `/ultra plan` für Website-Redesign-Sprint
 
-### P1 — Sofort (diese Woche)
-1. Video-Transkriptions-Pipeline bauen — `tools/extract_video_captions.py` + `workflows/video-transcription.md`
-2. Video-01 bis video-07 als echte Wissensdokumente neu erstellen (mit echten Transkripten)
-3. n8n Workflow-Katalog anlegen — `docs/n8n-workflow-library.md`
-4. Self-Checking Hooks in `.claude/settings.json` — PostToolUse (progress.md reminder) + Stop (session summary)
-5. Nova Business als Referenzdokument einbinden — `references/nova-business-foundation.md`
+### P1 — VPS Deployment vorbereiten (diese Woche)
+1. SSH-Inspektion VPS: `docker ps`, `ss -tlnp` — laufende Services kartieren
+2. Port-Konflikte lösen (Uptime Kuma 3001 → 3201 lt. Kanonik)
+3. docker-compose Stack deployen: Traefik + Pocketbase + n8n
+4. Cloudflare DNS: nova-tive.com auf VPS-IP zeigen
+5. SSL-Zertifikat via Traefik + Let's Encrypt prüfen
 
-### P2 — Diese Woche
-6. Akademische Grundlagen aus dem Chatverlauf strukturieren — `references/philosophische-grundlagen.md`, `references/wirkungsmessung.md`
-7. Self-Audit Skill — `~/.claude/skills/self-audit/SKILL.md`
-8. Akademiker-Kontakte und Meeting-Prep aus dem Chatverlauf extrahieren
+### P2 — Pocketbase + Mitgliedsantrag (nach VPS live)
+6. Pocketbase-Schema: Collection `mitgliedsantrag` (Name, Email, Typ, Datum, Status)
+7. Mitgliedsantrag-Formular in apps/verein/mitmachen/ — POST → Pocketbase
+8. Pocketbase MCP bauen (wenn Website live ist)
+9. Admin-Workflow: Eingangs-Email via n8n, Status-Update
 
-### P3 — Nächste Woche (Website-Ausbau beginnt erst hier)
-9. Mitgliedsantrag-Formular (Pocketbase) implementieren
-10. Creator-Workflow-System (vc-03) aufbauen
-11. GitHub Push + VPS Deployment vorbereiten
-12. Erste n8n-Workflows deployen (Faceless Shorts System als erstes)
+### P3 — Phase 0 Abschluss (parallel zu P2, low-effort)
+- Step 10: FIDT Business → nova-business-foundation.md (🤖, ~30 min)
+- Step 11: Philosophische Grundlagen → philosophische-grundlagen.md (🤖, ~45 min)
+- Step 12–13: Outreach-Templates + Partner-Liste (🤖, ~30 min)
+- Step 14: Self-Audit Skill (🤖, ~20 min)
+- Step 15: Wöchentlicher Health-Check Cron (🤖, heute möglich)
 
-### P4 — Parallel (eigenständig)
-- Trading
+### P4 — Phase 1 Beginn (nach VPS + Pocketbase)
+- Logo + Stempel via Canva MCP (Step 23)
+- Social Media Accounts anlegen (Step 25) — Heinrich macht das selbst
+- E-Mail vorstand@ einrichten (Step 26)
+
+---
+
+## Was NICHT jetzt dran kommt
+
+- Creator-Workflow-System / Content-Pipeline → erst wenn VPS live
+- n8n Workflows deployen → erst wenn n8n auf VPS läuft
+- key.ai + Airtable MCP Content Engine → nach Social Media Start
+- Agent Teams → komplexere Workflows brauchen zuerst stabiles Deployment
+
+---
+
+## MCP Server — aktueller Stand
+
+| Server | Status | Wann aktivieren |
+|---|---|---|
+| trigger.dev | ✅ konfiguriert | wenn Workflows deployt werden |
+| Notion | ✅ vorhanden (lt. Heinrich) | sofort nutzbar |
+| Canva | verfügbar in Claude | für Logo/Stempel (Step 23) |
+| Pocketbase | muss gebaut werden | nach VPS live |
+| Airtable | verfügbar | nach Social Media Start |
+
+---
 
 ## Entscheidungslog
 
-- **2026-05-08:** Bestandsaufnahme ergab, dass video-01 bis video-07 keine echten Transkripte sind. Yt-dlp-Pipeline muss gebaut werden.
+- **2026-05-08:** masterplan-100.md gelöscht — vollständig von masterplan-200.md abgelöst.
+- **2026-05-08:** Phase 0 Steps 1–9 abgeschlossen. Steps 10–15 bleiben offen (low-effort, parallel möglich).
+- **2026-05-08:** Fundament-Prinzip präzisiert: apps/verein visuell testen KOMMT VOR VPS-Deployment. Website, die niemand gesehen hat, wird nicht deployt.
+- **2026-05-08:** Bestandsaufnahme ergab, dass video-01 bis video-07 keine echten Transkripte waren. yt-dlp-Pipeline wurde durch youtube-transcript-api ersetzt, alle 24 Videos neu dokumentiert.
 - **2026-05-08:** Masterplan von 100 auf 200 Schritte ausgebaut. 12 Phasen, n8n-Library und Nova Business integriert.
-- **2026-05-08:** Nate Herk Frameworks (WAT, Web Design, Trigger.dev) als Skills eingebunden, nicht als weitere CLAUDE.md-Dateien.
-- **2026-05-08:** Fundament-Prinzip: Website-Ausbau beginnt erst nach P1 und P2.
-
-## Diese Datei aktualisieren
-Bei echten Verschiebungen, nicht quartalsweise. Datum immer mit angeben.
+- **2026-05-08:** Nate Herk Frameworks (WAT, Web Design, Trigger.dev) als Skills eingebunden.

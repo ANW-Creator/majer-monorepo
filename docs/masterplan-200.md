@@ -39,21 +39,19 @@
 **Output:** settings.json mit PostToolUse + Stop-Hooks
 
 ### 7. Video-Transkriptions-Workflow aufbauen (WAT)
-**Was:** Die 7 `docs/tools/video-*.md` Dateien sind KEINE Transkripte. Sie sind Claude-Zusammenfassungen. Echter Workflow: `yt-dlp` → Captions extrahieren → Claude verarbeitet → strukturiertes Wissens-Dokument. Workflow in `workflows/video-transcription.md` dokumentieren.
-**Wer:** 🤝 — Heinrich lädt yt-dlp, 🤖 erstellt Workflow + Skript
+**Was:** `youtube-transcript-api` (v1.x) als Extraktions-Tool. `tools/extract_video_captions.py` als Python-Skript. `workflows/video-transcription.md` dokumentiert den vollständigen Prozess.
+**Status:** ✅ Erledigt (2026-05-08)
 **Output:** `tools/extract_video_captions.py` + `workflows/video-transcription.md`
-**Priorität:** Hoch — betrifft alle Nate Herk Videos und künftige Lernvideos
 
 ### 8. Nate Herk Video Database verarbeiten
-**Was:** `json/Nate Herk - Video Database.xlsx` enthält alle relevanten Videos. Dieses Spreadsheet kategorisieren, die wichtigsten Videos in echte Transkripte überführen.
-**Wer:** 🤖 — liest Spreadsheet, erstellt priorisierte Liste
-**Priorität:** 5 prioritäre Videos (inkl. 10h-Kurs aus "Was ich lerne")
-**Output:** Überarbeitete `docs/tools/video-*.md` Dateien mit echtem Inhalt statt Zusammenfassungen
+**Was:** Alle 24 Videos aus `docs/nate-herk-video-library.md` mit echten YouTube-Transkripten verarbeitet und als strukturierte Wissens-Dokumente abgelegt. Sieben veraltete Platzhalter-Dateien gelöscht.
+**Status:** ✅ Erledigt (2026-05-08) — Commit 0709e49
+**Output:** `docs/tools/video-01` bis `video-24` — alle 24 Wissensdokumente vollständig
 
 ### 9. n8n Workflow-Bibliothek kategorisieren
-**Was:** `json/` Ordner enthält 30+ n8n-Workflow-Templates unorganisiert. Kategorisieren: Content-Creation, Lead-Gen, AI-Agents, Data-Processing. Relevante für MAJER markieren.
-**Wer:** 🤖
-**Output:** `docs/n8n-workflow-library.md` — Katalog mit Kurzbeschreibung, Relevanz-Rating, Anpassungsaufwand
+**Was:** `json/` Ordner mit 30+ n8n-Workflow-Templates kategorisiert: Faceless Content, Lead-Gen, AI-Agents, Data-Processing.
+**Status:** ✅ Erledigt (2026-05-08)
+**Output:** `docs/n8n-workflow-library.md`
 
 ### 10. FIDT-Business-Wissen integrieren
 **Was:** `FIDT - Buisness/` enthält Nova-10-Day-Setup, SWOT-Analyse, Competitive Analysis, Nova Response JSON. Relevantes für Verein + Nova in strukturierte Docs überführen.

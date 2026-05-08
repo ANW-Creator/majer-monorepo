@@ -25,6 +25,40 @@
 
 ## Entries
 
+## 2026-05-08 — Nate Herk Video-Bibliothek + Docs-Cleanup
+**Goal:** Alle 24 Nate Herk Videos als Wissensdokumente dokumentieren, veraltete Docs bereinigen, klare Prioritäten-Struktur herstellen.
+
+**Done:**
+- 8 fehlende Wissensdokumente erstellt: video-04 (Higgsfield), video-05 (6 Skills), video-06 (AI OS), video-11 (Agent Teams), video-12 (Ultra Plan), video-18 (Agentic Workflows), video-23 (Websites DE), video-24 (KI Bild/Video DE)
+- 7 veraltete Platzhalter-Dateien mit falschen Namen gelöscht
+- `docs/nate-herk-video-library.md` auf 24/24 vollständig aktualisiert
+- `docs/masterplan-200.md` Phase 0 Steps 7–9 als ✅ markiert
+- `docs/masterplan-100.md` gelöscht (vollständig von masterplan-200 abgelöst)
+- `context/current-priorities.md` komplett neu geschrieben (P0–P4 mit aktuellem Stand)
+- `CLAUDE.md` Status-Sektion aktualisiert
+- Commit 0709e49: "feat: complete Nate Herk knowledge library — all 24 videos documented"
+
+**In Progress:** —
+
+**Blocked:** —
+
+**Next Step:** `pnpm dev` in `apps/verein` → Browser öffnen → alle 7 Seiten + Persona-Modal visuell prüfen. Danach Frontend Design Skill anwenden wenn Qualität nicht ausreicht.
+
+**Files touched:**
+- `docs/tools/video-04` bis `video-24` (8 neue + 17 bestehende)
+- `docs/nate-herk-video-library.md` (modified)
+- `docs/masterplan-200.md` (modified)
+- `docs/masterplan-100.md` (deleted)
+- `context/current-priorities.md` (rewritten)
+- `CLAUDE.md` (modified)
+- `docs/session_state.md` (modified)
+
+**DSGVO touched:** no
+
+**Decision Log entry needed:** yes — masterplan-100.md Löschung, Phase-0-Abschluss → in session_state.md ergänzen
+
+---
+
 ## 2026-05-08 — apps/verein Website MVP gebaut
 **Goal:** MAJER-Website (apps/verein) als Visitenkarte bauen — lauffähig, markenkonform, alle Kernseiten vorhanden.
 
