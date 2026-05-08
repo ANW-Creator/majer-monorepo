@@ -114,6 +114,51 @@ In Pocketbase: Kollektion `tausend_fragen` (→ packages/db/ Schema)
 | 029 | Wann sollte man KI nutzen — und wann nicht? | Einstieg | Alle |
 | 030 | Was macht einen guten Prompt aus? | Einstieg | Alle |
 
+### Bereich 1: Sich selbst kennen (#031–040)
+
+| # | Frage | Schwierigkeit | Zielgruppe |
+|---|---|---|---|
+| 031 | Was ist ein innerer Antreiber — und warum sabotiert er mich ohne dass ich es merke? | Vertiefung | Student/Lehrer |
+| 032 | Welche Kommunikationsmuster wiederhole ich immer wieder — und woher kommen sie? | Vertiefung | Student/Lehrer |
+| 033 | Was ist ein Glaubenssatz — und wie erkenne ich, ob er wahr ist oder nur eine alte Geschichte? | Vertiefung | Alle |
+| 034 | Was ist Projektion — und wie erkenne ich, wenn ich bei anderen kritisiere was ich selbst nicht akzeptiere? | Vertiefung | Student/Lehrer |
+| 035 | Was ist Scham — und warum ist sie anders als Schuld? | Vertiefung | Alle |
+| 036 | Wie erkenne ich manipulative Kommunikation — bevor ich darauf reinfalle? | Vertiefung | Alle |
+| 037 | Was ist eine persönliche Grenze — und warum ist "Nein" kein Angriff? | Einstieg | Alle |
+| 038 | Wie entscheide ich, welche meiner Werte wirklich meine eigenen sind — und welche mir aufgezwungen wurden? | Vertiefung | Student/Lehrer |
+| 039 | Was passiert kommunikativ wenn ich unter Stress stehe — und wie verändere ich das? | Vertiefung | Alle |
+| 040 | Warum rechtfertige ich mich so oft — und was steckt wirklich dahinter? | Einstieg | Alle |
+
+### Bereich 2: Digitale Welt verstehen (#041–050)
+
+| # | Frage | Schwierigkeit | Zielgruppe |
+|---|---|---|---|
+| 041 | Was ist ein Deepfake — und wie erkenne ich eines? | Einstieg | Alle |
+| 042 | Wie entsteht Desinformation — und warum verbreitet sie sich schneller als Fakten? | Vertiefung | Alle |
+| 043 | Was sind Dark Patterns — und welche benutzen die Apps auf meinem Handy gerade? | Vertiefung | Schüler/Student |
+| 044 | Was bedeutet Datenschutz konkret — was darf eine App wirklich über mich speichern? | Einstieg | Alle |
+| 045 | Was ist KI-Ethik — und warum ist das kein Luxusproblem? | Vertiefung | Student/Lehrer |
+| 046 | Was ist meine digitale Identität — und wer hat Zugriff darauf? | Einstieg | Alle |
+| 047 | Wie viel Macht haben Plattformen wie Google und Meta wirklich — und warum ist das politisch relevant? | Vertiefung | Student/Lehrer |
+| 048 | Was ist ein KI-Bias — und warum diskriminieren Algorithmen ohne böse Absicht? | Vertiefung | Student/Lehrer |
+| 049 | Warum stimme ich AGBs zu, die ich nie gelesen habe — und was gebe ich damit auf? | Einstieg | Alle |
+| 050 | Was passiert mit meinen Daten wenn eine App pleite geht oder übernommen wird? | Vertiefung | Alle |
+
+### Bereich 3: Werkzeuge nutzen (#051–060)
+
+| # | Frage | Schwierigkeit | Zielgruppe |
+|---|---|---|---|
+| 051 | Was kann ChatGPT — und was kann es definitiv nicht? | Einstieg | Alle |
+| 052 | Wie baue ich einen automatisierten Workflow mit n8n — Schritt für Schritt? | Vertiefung | Student/Lehrer |
+| 053 | Wie organisiere ich Dateien so, dass eine KI damit arbeiten kann? | Einstieg | Alle |
+| 054 | Was ist der Unterschied zwischen einem KI-Tool und einer KI-Automatisierung? | Einstieg | Student/Lehrer |
+| 055 | Was sind die Grenzen von No-Code — und wann muss ich echten Code schreiben? | Vertiefung | Student/Lehrer |
+| 056 | Wie erkenne ich, ob ein KI-Tool meine Daten für Training verwendet? | Vertiefung | Alle |
+| 057 | Was ist ethisches Bauen mit KI — und welche Fragen muss ich mir stellen bevor ich eine App veröffentliche? | Experte | Student/Lehrer |
+| 058 | Wie nutze ich KI um Recherche zu beschleunigen — ohne die Kontrolle über das Ergebnis zu verlieren? | Vertiefung | Schüler/Student |
+| 059 | Was ist ein KI-Agent — und wann macht es Sinn, einen einzusetzen? | Experte | Student/Lehrer |
+| 060 | Wie baue ich ein System das mir täglich Aufgaben abnimmt — ohne Programmierkenntnisse? | Vertiefung | Alle |
+
 ---
 
 ## Produktions-Pipeline (1 Frage → alle Kanäle)
