@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PillarCard } from "@/components/PillarCard";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { CurriculumTimeline } from "@/components/CurriculumTimeline";
 import { PILLARS } from "@/lib/curriculum";
 
 export const metadata: Metadata = {
@@ -144,53 +145,7 @@ export default function Lernpfade() {
               Der Weg zur digitalen Mündigkeit
             </p>
           </AnimatedSection>
-          <div className="flex items-start min-w-[580px] md:min-w-0">
-            {/* Start */}
-            <div className="flex flex-col items-center gap-3 shrink-0">
-              <div className="w-3 h-3 rounded-full bg-divider border-2 border-muted/40 mt-2.5" />
-              <span className="font-sans text-[10px] text-muted/60 text-center max-w-[56px] leading-tight">
-                Mensch
-              </span>
-            </div>
-            <div className="flex-1 h-px bg-divider mt-4 mx-3" />
-            {/* Step 1 */}
-            <div className="flex flex-col items-center gap-3 shrink-0">
-              <div className="w-9 h-9 rounded-full bg-primary/8 border border-primary/25 flex items-center justify-center">
-                <span className="font-sans text-[10px] text-primary font-medium">01</span>
-              </div>
-              <span className="font-sans text-[10px] text-primary text-center max-w-[72px] leading-tight font-medium">
-                Selbst­kenntnis
-              </span>
-            </div>
-            <div className="flex-1 h-px bg-divider mt-4 mx-3" />
-            {/* Step 2 */}
-            <div className="flex flex-col items-center gap-3 shrink-0">
-              <div className="w-9 h-9 rounded-full bg-primary/8 border border-primary/25 flex items-center justify-center">
-                <span className="font-sans text-[10px] text-primary font-medium">02</span>
-              </div>
-              <span className="font-sans text-[10px] text-primary text-center max-w-[72px] leading-tight font-medium">
-                Welt­verständnis
-              </span>
-            </div>
-            <div className="flex-1 h-px bg-divider mt-4 mx-3" />
-            {/* Step 3 */}
-            <div className="flex flex-col items-center gap-3 shrink-0">
-              <div className="w-9 h-9 rounded-full bg-primary/8 border border-primary/25 flex items-center justify-center">
-                <span className="font-sans text-[10px] text-primary font-medium">03</span>
-              </div>
-              <span className="font-sans text-[10px] text-primary text-center max-w-[72px] leading-tight font-medium">
-                Werkzeug­kompetenz
-              </span>
-            </div>
-            <div className="flex-1 h-px bg-divider mt-4 mx-3" />
-            {/* End */}
-            <div className="flex flex-col items-center gap-3 shrink-0">
-              <div className="w-3 h-3 rounded-full bg-primary mt-2.5" />
-              <span className="font-sans text-[10px] text-primary text-center max-w-[72px] leading-tight font-medium">
-                Digitale Mündigkeit
-              </span>
-            </div>
-          </div>
+          <CurriculumTimeline />
         </div>
       </section>
 

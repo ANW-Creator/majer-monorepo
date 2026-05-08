@@ -173,22 +173,20 @@ export default function Mitmachen() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Oktober 2026
+              Frühzeitig
               <br />
-              ist der{" "}
-              <em className="text-primary">Stichtag.</em>
+              <em className="text-primary">dabei sein.</em>
             </h2>
           </div>
           <div className="mt-10 md:mt-0 border-l border-divider pl-8 md:pl-10 space-y-5">
             <p className="font-sans text-[15px] text-muted leading-[1.85]">
-              Oktober 2026 ist der Stichtag für den Berliner Landesjugendplan —
-              unsere erste große Förderchance. Dafür brauchen wir einen
-              dokumentierten Workshop, eine Schulkooperation und eine aktive
-              Mitgliederstruktur.
+              MAJER befindet sich im Aufbau. Wer jetzt beitritt, begleitet den
+              Verein von Anfang an — hat mehr Einfluss auf Inhalte und
+              Ausrichtung, als es später möglich sein wird.
             </p>
             <p className="font-sans text-[15px] text-ink font-medium leading-[1.85]">
-              Wer jetzt dabei ist, baut MAJER mit auf — und ist Teil von etwas,
-              das in Berlin noch nicht existiert.
+              Frühzugangsmitglieder gestalten mit. Das ist kein Slogan —
+              das ist die Realität eines Vereins in der Gründungsphase.
             </p>
           </div>
         </div>
@@ -208,28 +206,15 @@ export default function Mitmachen() {
                 letterSpacing: "-0.015em",
               }}
             >
-              Schreib uns.
+              Mitgliedsformular
               <br />
-              Wir antworten in 2 Werktagen.
+              <em className="text-primary">folgt in Kürze.</em>
             </h2>
           </div>
-          <div className="mt-8 md:mt-0 flex flex-col items-start gap-3 shrink-0">
-            <a
-              href="mailto:vorstand@digitale-bildung-berlin.de"
-              className="inline-flex items-center gap-2 bg-primary text-paper font-sans text-sm px-7 py-3.5 rounded-sm hover:bg-primary-light transition-colors duration-200"
-            >
-              vorstand@digitale-bildung-berlin.de
-            </a>
-            <p className="font-sans text-xs text-muted">
-              Oder auf Instagram:{" "}
-              <a
-                href="https://instagram.com/majer.bildung"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                @majer.bildung
-              </a>
+          <div className="mt-8 md:mt-0 flex flex-col items-start gap-3 shrink-0 max-w-[280px]">
+            <p className="font-sans text-sm text-muted leading-[1.7]">
+              Das digitale Beitrittsformular wird in den nächsten Wochen
+              freigeschaltet. Bis dahin: Kontaktdaten folgen.
             </p>
           </div>
         </div>

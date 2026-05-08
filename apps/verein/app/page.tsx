@@ -29,7 +29,7 @@ export default function Home() {
               className="animate-in font-sans text-[10px] tracking-[0.35em] text-primary uppercase mb-10"
               style={{ animationDelay: "0ms" }}
             >
-              Gemeinnütziger Verein · Berlin · Gegr. 2026
+              Gemeinnütziger Verein i.G. · Berlin · 2026
             </p>
 
             <h1
