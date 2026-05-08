@@ -11,10 +11,8 @@
 ## Voraussetzungen
 
 ```bash
-# yt-dlp installieren (einmalig)
-pip install yt-dlp
-# oder
-brew install yt-dlp
+# yt-dlp installieren (einmalig) — kein Homebrew nötig
+pip3 install yt-dlp
 ```
 
 ---
@@ -23,13 +21,13 @@ brew install yt-dlp
 
 ```bash
 # Einzelnes Video
-python tools/extract_video_captions.py "https://www.youtube.com/watch?v=VIDEO_ID"
+python3 tools/extract_video_captions.py "https://www.youtube.com/watch?v=VIDEO_ID"
 
 # Mit Sprach-Override (falls Video auf Englisch)
-python tools/extract_video_captions.py "https://www.youtube.com/watch?v=VIDEO_ID" --lang en
+python3 tools/extract_video_captions.py "https://www.youtube.com/watch?v=VIDEO_ID" --lang en
 
-# Batch-Verarbeitung (alle videos-urls.txt Zeilen)
-python tools/extract_video_captions.py --batch .tmp/video-urls.txt
+# Batch — alle 24 Nate-Herk-Videos auf einmal
+python3 tools/extract_video_captions.py --batch docs/nate-herk-urls.txt --lang en
 ```
 
 Das Transkript landet in `.tmp/transcripts/<video_id>_<titel>.txt`.
