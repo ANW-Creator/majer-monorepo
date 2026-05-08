@@ -21,158 +21,280 @@ const DREI_SCHRITTE = [
 const ZAHLEN = [
   { wert: "30", einheit: "Lernpfade", note: "CC BY-SA 4.0 — frei nutzbar" },
   { wert: "1000", einheit: "Fragen", note: "Curriculum in Aufbau" },
-  {
-    wert: "4",
-    einheit: "Zielgruppen",
-    note: "Schüler:in · Student:in · Lehrer:in · Förderer:in",
-  },
+  { wert: "4", einheit: "Zielgruppen", note: "Schüler · Student · Lehrer · Förderer" },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
-        <div className="max-w-2xl">
-          <p className="font-sans text-sm tracking-widest text-muted uppercase mb-6">
-            Gemeinnütziger Verein · Berlin
-          </p>
-          <h1 className="font-display text-5xl md:text-6xl font-light leading-tight text-ink mb-4">
-            Zuerst wer du bist.
-            <br />
-            Dann wie die Welt
-            <br />
-            funktioniert.
-            <br />
-            <em className="text-primary">Erst dann die Werkzeuge.</em>
-          </h1>
-          <div className="majer-rule my-6 max-w-xs" />
-          <p className="font-sans text-lg text-muted leading-relaxed max-w-xl">
-            MAJER ist das einzige deutschsprachige Bildungsangebot, das
-            psychologische Selbststeuerung, algorithmische Aufklärung und
-            digitale Kompetenz in einer klaren Reihenfolge verbindet.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/lernpfade"
-              className="inline-flex items-center gap-2 bg-primary text-paper font-sans text-sm px-6 py-3 rounded-sm hover:bg-primary-light transition-colors"
-            >
-              Lernpfade entdecken
-            </Link>
-            <Link
-              href="/mitmachen"
-              className="inline-flex items-center gap-2 border border-primary text-primary font-sans text-sm px-6 py-3 rounded-sm hover:bg-primary hover:text-paper transition-colors"
-            >
-              Mitglied werden
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* ─── HERO ─────────────────────────────────────────── */}
+      <section className="min-h-[90vh] max-w-5xl mx-auto px-6 flex flex-col justify-center pt-24 pb-20">
+        <div className="md:grid md:grid-cols-[1fr_180px] md:gap-12 md:items-end">
 
-      {/* Drei Schritte */}
-      <section className="bg-surface border-y border-divider py-20">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="font-display text-3xl font-light text-ink mb-12">
-            Das Konzept
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {DREI_SCHRITTE.map((schritt) => (
-              <div key={schritt.nummer} className="flex flex-col gap-3">
-                <span className="font-sans text-xs tracking-widest text-muted uppercase">
-                  Schritt {schritt.nummer}
+          {/* Headline block */}
+          <div>
+            <p
+              className="animate-in font-sans text-[10px] tracking-[0.35em] text-primary uppercase mb-10"
+              style={{ animationDelay: "0ms" }}
+            >
+              Gemeinnütziger Verein · Berlin · Gegr. 2026
+            </p>
+
+            <h1
+              className="animate-in font-display font-light text-ink"
+              style={{
+                fontSize: "clamp(3rem, 7.5vw, 6.5rem)",
+                lineHeight: "0.93",
+                letterSpacing: "-0.025em",
+                animationDelay: "80ms",
+              }}
+            >
+              Zuerst wer du bist.
+              <br />
+              Dann wie die&nbsp;Welt
+              <br />
+              funktioniert.
+              <br />
+              <em className="text-primary">Erst dann die Werkzeuge.</em>
+            </h1>
+
+            <div
+              className="animate-in h-px bg-primary w-12 mt-10 mb-8"
+              style={{ opacity: 0.35, animationDelay: "180ms" }}
+            />
+
+            <p
+              className="animate-in font-sans text-base text-muted leading-[1.8] max-w-[500px]"
+              style={{ animationDelay: "260ms" }}
+            >
+              MAJER ist das einzige deutschsprachige Bildungsangebot, das
+              psychologische Selbststeuerung, algorithmische Aufklärung und
+              digitale Kompetenz in einer klaren Reihenfolge verbindet.
+            </p>
+
+            <div
+              className="animate-in mt-10 flex flex-wrap gap-4"
+              style={{ animationDelay: "340ms" }}
+            >
+              <Link
+                href="/lernpfade"
+                className="inline-flex items-center gap-2 bg-primary text-paper font-sans text-sm px-7 py-3.5 rounded-sm hover:bg-primary-light transition-colors duration-200"
+              >
+                Lernpfade entdecken
+              </Link>
+              <Link
+                href="/mitmachen"
+                className="inline-flex items-center gap-2 border border-primary/40 text-primary font-sans text-sm px-7 py-3.5 rounded-sm hover:border-primary hover:bg-primary/5 transition-colors duration-200"
+              >
+                Mitglied werden
+              </Link>
+            </div>
+          </div>
+
+          {/* Drei-Schritte-Sidebar (desktop only) */}
+          <div
+            className="animate-in hidden md:flex flex-col gap-7 border-l border-divider pl-8 pb-1"
+            style={{ animationDelay: "280ms" }}
+          >
+            <p className="font-sans text-[9px] tracking-[0.3em] text-muted/60 uppercase mb-1">
+              Das Konzept
+            </p>
+            {DREI_SCHRITTE.map((s) => (
+              <div key={s.nummer} className="flex items-start gap-3">
+                <span className="font-sans text-[10px] text-primary/40 shrink-0 pt-px tabular-nums">
+                  {s.nummer}
                 </span>
-                <h3 className="font-display text-2xl font-light text-primary">
-                  {schritt.titel}
-                </h3>
-                <div className="majer-rule max-w-[3rem]" />
-                <p className="font-sans text-sm text-muted leading-relaxed">
-                  {schritt.text}
-                </p>
+                <span className="font-sans text-xs text-muted leading-snug">
+                  {s.titel}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Warum die Reihenfolge zählt */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-3xl font-light text-ink mb-6">
-            Warum die Reihenfolge zählt
-          </h2>
-          <p className="font-sans text-muted leading-relaxed mb-4">
-            Klicksafe warnt vor Gefahren. Chaos macht Schule baut Tools. JFF
-            analysiert Gesellschaft. Alle machen wichtige Arbeit — aber alle
-            beginnen in der Mitte.
+      {/* ─── DREI SCHRITTE ───────────────────────────────── */}
+      <section className="border-y border-divider">
+        {/* Section label */}
+        <div className="max-w-5xl mx-auto px-6 border-b border-divider">
+          <p className="font-sans text-[9px] tracking-[0.3em] text-muted uppercase py-4">
+            Das Konzept — Warum Reihenfolge vor Werkzeug kommt
           </p>
-          <p className="font-sans text-muted leading-relaxed mb-4">
-            Wer sich nicht selbst steuern kann, wird durch bessere Werkzeuge
-            nicht freier — nur impulsiver. Und wer nicht versteht, wie
-            Algorithmen Geld verdienen, kann ihre Auswirkungen nicht einordnen.
-          </p>
-          <p className="font-sans text-muted leading-relaxed">
-            MAJER beginnt beim Menschen. Das ist der Unterschied.
-          </p>
+        </div>
+
+        {/* Three columns */}
+        <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-divider">
+          {DREI_SCHRITTE.map((schritt) => (
+            <div
+              key={schritt.nummer}
+              className="group relative overflow-hidden px-8 py-16 bg-surface hover:bg-paper transition-colors duration-300"
+            >
+              {/* Decorative background number */}
+              <span
+                className="absolute -top-3 right-3 font-display font-light text-primary pointer-events-none select-none"
+                style={{ fontSize: "108px", lineHeight: 1, opacity: 0.055 }}
+                aria-hidden="true"
+              >
+                {schritt.nummer}
+              </span>
+
+              <span className="font-sans text-[10px] tracking-[0.28em] text-primary uppercase block mb-6">
+                Schritt {schritt.nummer}
+              </span>
+
+              <h3
+                className="font-display font-light text-ink mb-6 leading-tight"
+                style={{ fontSize: "clamp(1.6rem, 2.5vw, 2rem)" }}
+              >
+                {schritt.titel}
+              </h3>
+
+              {/* Expanding rule on hover */}
+              <div className="h-px bg-primary mb-6 group-hover:opacity-40 opacity-20 transition-all duration-300 group-hover:w-12 w-8" />
+
+              <p className="font-sans text-sm text-muted leading-[1.85]">
+                {schritt.text}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Zahlen */}
-      <section className="bg-primary text-paper py-16">
+      {/* ─── WARUM DIE REIHENFOLGE ───────────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 py-28">
+        <div className="md:grid md:grid-cols-[1fr_1.5fr] md:gap-20 items-start">
+          {/* Pull-quote headline */}
+          <div>
+            <h2
+              className="font-display font-light text-ink leading-[1.0]"
+              style={{
+                fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Alle beginnen
+              <br />
+              <em className="text-primary">in der Mitte.</em>
+              <br />
+              Wir nicht.
+            </h2>
+          </div>
+
+          {/* Explanatory text with left border */}
+          <div className="mt-10 md:mt-0 border-l border-divider pl-8 md:pl-10 space-y-5">
+            <p className="font-sans text-[15px] text-muted leading-[1.85]">
+              Klicksafe warnt vor Gefahren. Chaos macht Schule baut Tools. JFF
+              analysiert Gesellschaft. Alle machen wichtige Arbeit — aber alle
+              beginnen in der Mitte.
+            </p>
+            <p className="font-sans text-[15px] text-muted leading-[1.85]">
+              Wer sich nicht selbst steuern kann, wird durch bessere Werkzeuge
+              nicht freier — nur impulsiver. Und wer nicht versteht, wie
+              Algorithmen Geld verdienen, kann ihre Auswirkungen nicht einordnen.
+            </p>
+            <p className="font-sans text-[15px] text-ink font-medium leading-[1.85]">
+              MAJER beginnt beim Menschen. Das ist der Unterschied.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ZAHLEN ──────────────────────────────────────── */}
+      <section className="bg-primary text-paper overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-paper/10">
             {ZAHLEN.map((z) => (
-              <div key={z.einheit}>
-                <div className="font-display text-5xl font-light mb-1">
+              <div
+                key={z.einheit}
+                className="py-20 md:px-12 first:md:pl-0 last:md:pr-0"
+              >
+                <div
+                  className="font-display font-light leading-none text-paper mb-3"
+                  style={{ fontSize: "clamp(3.5rem, 7vw, 5.5rem)" }}
+                >
                   {z.wert}
                 </div>
-                <div className="font-sans text-sm font-medium mb-1 text-paper/90">
+                <div className="font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-paper/60 mb-2">
                   {z.einheit}
                 </div>
-                <div className="font-sans text-xs text-paper/60">{z.note}</div>
+                <div className="font-sans text-xs text-paper/35 leading-relaxed">
+                  {z.note}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* USP-Zitat */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
-        <blockquote className="max-w-3xl">
-          <div className="majer-rule max-w-[2rem] mb-6" />
-          <p className="font-display text-2xl md:text-3xl font-light text-ink leading-relaxed italic">
-            „PISA 2022: Deutschland auf Platz 25 von 37 OECD-Ländern bei
+      {/* ─── USP ZITAT ───────────────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 py-28">
+        <blockquote className="relative border-l-2 border-primary pl-8 md:pl-12 max-w-3xl">
+          {/* Decorative quotation mark */}
+          <span
+            className="absolute font-display font-light text-primary pointer-events-none select-none"
+            style={{
+              fontSize: "88px",
+              lineHeight: 1,
+              opacity: 0.1,
+              top: "-20px",
+              left: "-8px",
+            }}
+            aria-hidden="true"
+          >
+            "
+          </span>
+
+          <p
+            className="font-display font-light text-ink italic leading-[1.55]"
+            style={{ fontSize: "clamp(1.15rem, 2.2vw, 1.5rem)" }}
+          >
+            PISA 2022: Deutschland auf Platz 25 von 37 OECD-Ländern bei
             digitaler Kompetenz. 42 % der Schüler in Berliner
-            Brennpunktbezirken ohne digitale Grundkompetenzen."
+            Brennpunktbezirken ohne digitale Grundkompetenzen.
           </p>
-          <footer className="mt-4 font-sans text-xs text-muted">
+
+          <footer className="mt-6 font-sans text-[10px] tracking-[0.2em] text-muted uppercase">
             Berliner Bildungsbericht 2023 · PISA 2022 · ICILS 2023
           </footer>
         </blockquote>
       </section>
 
-      {/* CTA-Banner */}
-      <section className="bg-surface border-t border-divider py-16">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      {/* ─── CTA BANNER ──────────────────────────────────── */}
+      <section className="border-t border-b border-divider bg-surface">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:flex md:items-end md:justify-between md:gap-12">
           <div>
-            <h2 className="font-display text-2xl font-light text-ink mb-2">
-              Zusammen bauen wir digitale Mündigkeit.
+            <p className="font-sans text-[10px] tracking-[0.28em] text-muted uppercase mb-5">
+              Mach mit
+            </p>
+            <h2
+              className="font-display font-light text-ink leading-[1.05]"
+              style={{
+                fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Zusammen bauen wir
+              <br />
+              digitale Mündigkeit.
             </h2>
-            <p className="font-sans text-sm text-muted">
+          </div>
+          <div className="mt-8 md:mt-0 flex flex-col items-start gap-3 shrink-0">
+            <p className="font-sans text-xs text-muted">
               Als Mitglied, Kooperationspartner oder Förderer.
             </p>
+            <Link
+              href="/mitmachen"
+              className="inline-flex items-center gap-2 bg-primary text-paper font-sans text-sm px-7 py-3.5 rounded-sm hover:bg-primary-light transition-colors duration-200"
+            >
+              Jetzt mitmachen
+            </Link>
           </div>
-          <Link
-            href="/mitmachen"
-            className="shrink-0 inline-flex items-center gap-2 bg-primary text-paper font-sans text-sm px-6 py-3 rounded-sm hover:bg-primary-light transition-colors"
-          >
-            Mitmachen
-          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-divider py-8">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-sans text-xs text-muted">
+      {/* ─── FOOTER ──────────────────────────────────────── */}
+      <footer className="border-t border-divider">
+        <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-sans text-xs text-muted">
           <span>
             MAJER Digitale Bildung & Medienkompetenz e.V. i.G. · Berlin
           </span>
@@ -180,10 +302,7 @@ export default function Home() {
             <Link href="/impressum" className="hover:text-ink transition-colors">
               Impressum
             </Link>
-            <Link
-              href="/datenschutz"
-              className="hover:text-ink transition-colors"
-            >
+            <Link href="/datenschutz" className="hover:text-ink transition-colors">
               Datenschutz
             </Link>
             <Link href="/ueber-uns" className="hover:text-ink transition-colors">

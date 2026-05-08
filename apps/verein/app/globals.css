@@ -12,17 +12,16 @@
   --color-surface: #f5f3ee;
 
   /* Persona accent colors */
-  --color-schueler: #3b82f6;   /* blue-500 */
-  --color-student: #8b5cf6;    /* violet-500 */
-  --color-lehrer: #14b8a6;     /* teal-500 */
-  --color-foerderer: #f59e0b;  /* amber-500 */
+  --color-schueler: #3b82f6;
+  --color-student: #8b5cf6;
+  --color-lehrer: #14b8a6;
+  --color-foerderer: #f59e0b;
 
   /* Typography */
   --font-display: var(--font-crimson);
   --font-sans: var(--font-dm-sans);
 }
 
-/* Base reset */
 *,
 *::before,
 *::after {
@@ -38,7 +37,6 @@ body {
   color: var(--color-ink);
 }
 
-/* Typography utilities */
 .font-display {
   font-family: var(--font-display), Georgia, serif;
 }
@@ -47,11 +45,42 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Thin horizontal rule — "Die Pause" logo element */
+/* The thin rule — MAJER brand element */
 .majer-rule {
   display: block;
   width: 100%;
   height: 1px;
   background-color: var(--color-primary);
   opacity: 0.3;
+}
+
+/* Page-load reveal animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Hover lift for cards */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
